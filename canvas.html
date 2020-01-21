@@ -106,6 +106,7 @@
                 } else if(y + dy > canvas.height-ballRadius) {
                     if(x > paddleX && x < paddleX + paddleWidth) {
                     dy = -dy;
+                    changeBallColor();
                     } else {
                         alert("GAME OVER");
                         document.location.reload();
@@ -115,12 +116,10 @@
 
                 if(x + dx > canvas.width-ballRadius || x + dx < ballRadius) {
                     dx = -dx;
-                    changeBallColor();
                 }
 
                 if(y + dy > canvas.height-ballRadius || y + dy < ballRadius) {
                     dy = -dy;
-                    changeBallColor();
                 }
 
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
