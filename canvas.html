@@ -100,10 +100,19 @@
                     }
                 }
 
+                if(y + dy < ballRadius) {
+                    dy = -dy;
+                } else if(y + dy > canvas.height-ballRadius) {
+                    alert("GAME OVER");
+                    document.location.reload();
+                    clearInterval(interval); // Needed for Chrome to end game
+                }
+
                 if(x + dx > canvas.width-ballRadius || x + dx < ballRadius) {
                     dx = -dx;
                     changeBallColor();
                 }
+
                 if(y + dy > canvas.height-ballRadius || y + dy < ballRadius) {
                     dy = -dy;
                     changeBallColor();
@@ -115,7 +124,7 @@
                 x += dx;
                 y += dy;
             }
-            setInterval(draw, 10);
+            let interval = setInterval(draw, 10);
         </script>
 
     </body>
