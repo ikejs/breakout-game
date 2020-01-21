@@ -1,0 +1,15 @@
+<canvas id="myCanvas" width="400" height="400"></canvas>
+<script>
+    const canvas = document.getElementById('myCanvas');
+    const ctx = canvas.getContext('2d');
+
+    function draw(x, y, width, height, color) {
+        ctx.beginPath();
+        ctx.rect(width, height, x, y);
+        ctx.fillStyle = color
+        ctx.closePath()
+        ctx.fill();
+    }
+
+    draw(100, 50, 50, 50, "blue");
+</script>
