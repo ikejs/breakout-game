@@ -1,15 +1,45 @@
-<canvas id="myCanvas" width="400" height="400"></canvas>
-<script>
-    const canvas = document.getElementById('myCanvas');
-    const ctx = canvas.getContext('2d');
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Ike's Breakout Game</title>
+        <style>
+            * {
+                padding: 0;
+                margin: 0;
+            }
+            canvas {
+                background: #eee;
+                display: block;
+                margin: 0 auto;
+            }
+        </style>
+    </head>
+    <body>
+        <canvas id="myCanvas" width="480" height="320"></canvas>
 
-    function draw(x, y, width, height, color) {
-        ctx.beginPath();
-        ctx.rect(width, height, x, y);
-        ctx.fillStyle = color
-        ctx.closePath()
-        ctx.fill();
-    }
+        <script>
+            const canvas = document.getElementById("myCanvas");
+            const ctx = canvas.getContext("2d");
 
-    draw(100, 50, 50, 50, "blue");
-</script>
+            let x = canvas.width/2;
+            let y = canvas.height-30;
+
+            let dx = 2;
+            let dy = -2;
+            
+
+            function draw() {
+                ctx.beginPath();
+                ctx.arc(x, y, 10, 0, Math.PI*2);
+                ctx.fillStyle = "#0095DD";
+                ctx.fill();
+                ctx.closePath();
+                x += dx;
+                y += dy;
+            }
+            setInterval(draw, 10);
+        </script>
+
+    </body>
+</html>
