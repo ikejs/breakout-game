@@ -118,8 +118,8 @@ function collisionDetection() {
         if (x > b.x && x < b.x + brickWidth && y > b.y && y < b.y + brickHeight) {
           dy = -dy;
           b.status = 0;
-          score += 1 * 1200;
-          if (score === brickRowCount * brickColumnCount) {
+          score += 1;
+          if (brickRowCount * brickColumnCount === score) {
             alert(`YOU WIN, CONGRATULATIONS! Score: ${score}`);
             document.location.reload();
             clearInterval(interval);
@@ -161,7 +161,6 @@ function draw() {
     if (x > paddleX && x < paddleX + paddleWidth) {
       dy = -dy;
       changeBallColor();
-      score -= 500;
     } else {
       lives -= 1;
       if (!lives) {
