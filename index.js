@@ -27,7 +27,6 @@ const brickPadding = 10;
 const brickOffsetTop = 30;
 const brickOffsetLeft = 30;
 
-let interval;
 let score = 0;
 let lives = 3;
 
@@ -122,7 +121,6 @@ function collisionDetection() {
           if (brickRowCount * brickColumnCount === score) {
             alert(`YOU WIN, CONGRATULATIONS! Score: ${score}`);
             document.location.reload();
-            clearInterval(interval);
           }
         }
       }
@@ -166,16 +164,16 @@ function draw() {
       if (!lives) {
         alert(`GAME OVER! Score: ${score}`);
         document.location.reload();
-        clearInterval(interval);
       } else {
         x = canvas.width / 2;
         y = canvas.height - 30;
         dx = 2;
         dy = -2;
-        paddleX = (canvas.width - paddleWidth)/2;
+        paddleX = (canvas.width - paddleWidth) / 2;
       }
     }
   }
+  requestAnimationFrame(draw);
 
   if (x + dx > canvas.width - ballRadius || x + dx < ballRadius) {
     dx = -dx;
@@ -196,4 +194,4 @@ function draw() {
   y += dy;
 }
 
-interval = setInterval(draw, 10);
+draw();
